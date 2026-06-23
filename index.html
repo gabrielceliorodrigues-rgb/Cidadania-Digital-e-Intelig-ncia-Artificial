@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão Segura | Cidadania Digital e IA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho com Botão de Acessibilidade -->
+    <header>
+        <div class="header-container">
+            <h1>Conexão<span>Segura</span></h1>
+            <button id="theme-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção de Introdução e Contextualização -->
+        <section class="hero-section">
+            <h2>Cidadania Digital na Era da Inteligência Artificial</h2>
+            <p>As tecnologias de IA avançam rapidamente. Com elas, o surgimento de <strong>deepfakes</strong> e a automação da desinformação representam sérios riscos para a nossa sociedade. Entender o problema é o primeiro passo para se proteger.</p>
+        </section>
+
+        <!-- Seção Educativa: Como Identificar Deepfakes -->
+        <section class="educational-section">
+            <h3>Como Detectar Mídias Manipuladas (Deepfakes)</h3>
+            <div class="cards-container">
+                <div class="card">
+                    <h4>👁️ Falhas nos Olhos</h4>
+                    <p>Pistas comuns incluem a ausência de piscadas naturais ou reflexos inconsistentes nos olhos do interlocutor.</p>
+                </div>
+                <div class="card">
+                    <h4>🗣️ Sincronia de Áudio</h4>
+                    <p>O movimento dos lábios muitas vezes não condiz perfeitamente com o som emitido ou com a tonalidade da voz.</p>
+                </div>
+                <div class="card">
+                    <h4>🖼️ Bordas e Elementos</h4>
+                    <p>Desfocados ao redor do rosto, sombras estranhas ou acessórios (brincos, óculos) distorcidos denunciam a manipulação.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Interativa: Quiz Anti-Desinformação -->
+        <section class="quiz-section">
+            <h3>Desafio Interativo: Você Sabe Identificar a Verdade?</h3>
+            <p>Responda à questão abaixo para testar suas habilidades contra a desinformação automatizada:</p>
+            
+            <form id="quiz-form">
+                <fieldset>
+                    <legend>Se você receber um vídeo bombástico de uma figura pública cometendo um crime, qual deve ser sua primeira atitude?</legend>
+                    
+                    <label class="quiz-option">
+                        <input type="radio" name="quiz-answer" value="errada1" required>
+                        <span>Compartilhar imediatamente nos grupos de família para alertar a todos.</span>
+                    </label>
+                    
+                    <label class="quiz-option">
+                        <input type="radio" name="quiz-answer" value="correta">
+                        <span>Duvidar, analisar as bordas do rosto e cruzar a informação com portais de notícias confiáveis.</span>
+                    </label>
+                    
+                    <label class="quiz-option">
+                        <input type="radio" name="quiz-answer" value="errada2">
+                        <span>Acreditar cegamente, pois vídeos são provas absolutas e impossíveis de serem forjados.</span>
+                    </label>
+                </fieldset>
+                
+                <button type="submit" id="submit-btn">Verificar Resposta</button>
+            </form>
+            
+            <!-- Div de Feedback que será manipulada via JS -->
+            <div id="quiz-feedback" class="feedback-box hidden"></div>
+        </section>
+    </main>
+
+    <!-- Rodapé Institucional -->
+    <footer>
+        <p>&copy; 2026 Conexão Segura. Desenvolvido para o Projeto de Recuperação em Educação Digital e IA.</p>
+        <p>Hashtag do Projeto: <strong>#cidadaniadigital2026</strong></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
