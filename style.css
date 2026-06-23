@@ -1,0 +1,220 @@
+/* Variáveis de Cores e Configurações Globais (Suporte a Modo Escuro) */
+:root {
+    --bg-primary: #f4f7f6;
+    --bg-container: #ffffff;
+    --text-main: #2c3e50;
+    --text-muted: #555555;
+    --accent-color: #3498db;
+    --accent-success: #2ecc71;
+    --accent-error: #e74c3c;
+    --border-color: #e2e8f0;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-container: #1e1e1e;
+    --text-main: #f5f6fa;
+    --text-muted: #dcdde1;
+    --accent-color: #9b59b6;
+    --border-color: #2c3e50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Layout Avançado com Flexbox no Header */
+.main-header {
+    background-color: var(--bg-container);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilização de Botões com Efeito Hover Suave */
+.btn-toggle {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-toggle:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Seções Principais */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+/* Cards usando Flexbox */
+.info-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    flex: 1;
+    background-color: var(--bg-container);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+/* Formulário Interativo */
+.interactive-section {
+    background-color: var(--bg-container);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.quiz-question {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.option-label:hover {
+    background-color: var(--bg-primary);
+}
+
+.btn-submit {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: opacity var(--transition-speed);
+}
+
+.btn-submit:hover {
+    opacity: 0.9;
+}
+
+/* Mensagens de Feedback */
+.result-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    animation: fadeIn 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+#quiz-result-success {
+    background-color: rgba(46, 204, 113, 0.15);
+    border-left: 5px solid var(--accent-success);
+}
+
+#quiz-result-error {
+    background-color: rgba(231, 76, 60, 0.15);
+    border-left: 5px solid var(--accent-error);
+}
+
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-container);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+/* Animação Básica */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade Absoluta via Media Queries (Telas Móveis) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .info-section {
+        flex-direction: column;
+    }
+
+    .hero-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+}
