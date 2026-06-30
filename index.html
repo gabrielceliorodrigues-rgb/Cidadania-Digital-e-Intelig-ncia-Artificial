@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conexão Segura | Cidadania Digital e IA</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="header-container">
             <h1>Conexão<span>Segura</span></h1>
-            <button id="theme-toggle" class="btn-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+            <button id="theme-toggle" class="btn-toggle">🌓 Alternar Tema</button>
         </div>
     </header>
 
@@ -41,31 +41,25 @@
 
         <section class="table-section">
             <h3>Guia de Sobrevivência Digital: Real vs. Artificial</h3>
-            <p>Veja as principais diferenças conceituais para não cair em armadilhas na internet:</p>
             <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
-                            <th>Tecnologia/Conceito</th>
+                            <th>Tecnologia</th>
                             <th>O que é?</th>
                             <th>Como se proteger?</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Deepfake de Áudio/Vídeo</strong></td>
-                            <td>Sintetização de voz ou imagem simulando pessoas reais dizendo coisas que nunca disseram.</td>
-                            <td>Analise a respiração, cortes bruscos de áudio e expressões faciais travadas.</td>
+                            <td><strong>Deepfake</strong></td>
+                            <td>Sintetização de voz ou imagem simulando pessoas reais de forma falsa.</td>
+                            <td>Analise a respiração e expressões faciais travadas.</td>
                         </tr>
                         <tr>
-                            <td><strong>Desinformação Automatizada</strong></td>
-                            <td>Bots e contas fakes programados para espalhar mentiras em massa nas redes sociais.</td>
-                            <td>Cheque se o perfil possui comportamento repetitivo e verifique em agências de checagem.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Phishing Baseado em IA</strong></td>
-                            <td>E-mails e mensagens de golpe perfeitamente escritos por IA para roubar dados.</td>
-                            <td>Nunca clique em links suspeitos e confirme a identidade do remetente por canais oficiais.</td>
+                            <td><strong>Desinformação</strong></td>
+                            <td>Contas fakes criadas para espalhar mentiras em massa.</td>
+                            <td>Verifique sempre em agências de checagem conhecidas.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -74,11 +68,10 @@
 
         <section class="interactive-section">
             <h3>🎮 Minijogo: Detetive Antidesinformação</h3>
-            <p>Responda às perguntas para avançar de nível e testar suas defesas cibernéticas!</p>
             
             <div class="game-status">
-                <div class="scoreboard">Pontuação: <strong id="score">0</strong> pontos</div>
-                <div class="phase-indicator">Fase: <strong id="phase-num">1</strong> de 3</div>
+                <div class="scoreboard">Pontos: <strong id="score">0</strong></div>
+                <div class="phase-indicator">Fase: <strong id="phase-num">1</strong>/3</div>
             </div>
 
             <div class="progress-container">
@@ -87,10 +80,7 @@
 
             <form id="quiz-form" class="quiz-container">
                 <p class="quiz-question" id="question-text">Carregando pergunta...</p>
-                
-                <div class="options-container" id="options-wrapper">
-                    </div>
-                
+                <div class="options-container" id="options-wrapper"></div>
                 <button type="submit" class="btn-submit" id="submit-btn">Verificar Resposta</button>
             </form>
             
@@ -99,10 +89,9 @@
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 Conexão Segura. Desenvolvido para o Projeto de Recuperação em Educação Digital e IA.</p>
-        <p>Hashtag do Projeto: <strong>#cidadaniadigital2026</strong></p>
+        <p>&copy; 2026 Conexão Segura. Projeto de Educação Digital e IA. <strong>#cidadaniadigital2026</strong></p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
