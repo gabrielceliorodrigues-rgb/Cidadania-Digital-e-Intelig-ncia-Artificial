@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- LÓGICA DO MODO ESCURO ---
+    // ==========================================
+    // CONTROLE DO MODO ESCURO (TEMA)
+    // ==========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
-    
-    // Verifica se o usuário já tem uma preferência salva
     const savedTheme = localStorage.getItem('theme');
+
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
         themeToggleBtn.textContent = savedTheme === 'dark' ? '☀️ Modo Claro' : '🌓 Modo Escuro';
@@ -25,28 +26,47 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
     });
 
-
-    // --- LÓGICA DO JOGO (QUIZ) ---
+    // ==========================================
+    // MECÂNICA DO MINIJOGO (QUIZ COM PONTOS)
+    // ==========================================
     const quizForm = document.getElementById('quiz-form');
     const successFeedback = document.getElementById('quiz-result-success');
     const errorFeedback = document.getElementById('quiz-result-error');
+    const scoreDisplay = document.getElementById('score');
+    const submitBtn = document.getElementById('submit-btn');
+
+    let currentScore = 0;
+    let gamePlayed = false; // Impede trapaças de responder múltiplas vezes a mesma pergunta
 
     quizForm.addEventListener('submit', (event) => {
-        // Evita que a página recarregue ao enviar o formulário
-        event.preventDefault(); 
+        event.preventDefault(); // Impede o recarregamento da página
 
-        // Captura a opção selecionada
+        if (gamePlayed) return; // Se já jogou, bloqueia novos envios
+
         const selectedOption = document.querySelector('input[name="quiz-answer"]:checked');
 
-        // Reseta a visibilidade dos feedbacks anteriores
+        // Esconde feedbacks anteriores por segurança
         successFeedback.classList.add('hidden');
         errorFeedback.classList.add('hidden');
 
-        // Valida a resposta do jogador
-        if (selectedOption && selectedOption.value === 'correta') {
-            successFeedback.classList.remove('hidden');
-        } else {
-            errorFeedback.classList.remove('hidden');
+        if (selectedOption) {
+            gamePlayed = true; // Finaliza a rodada atual
+            submitBtn.disabled = true; // Desabilita o botão
+            submitBtn.style.opacity = "0.5";
+            submitBtn.style.cursor = "not-allowed";
+
+            // Desabilita os campos para o usuário não mudar a opção após responder
+            const inputs = quizForm.querySelectorAll('input[name="quiz-answer"]');
+            inputs.forEach(input => input.disabled = true);
+
+            // Validação e atribuição de pontos do Jogo
+            if (selectedOption.value === 'correta') {
+                currentScore += 10;
+                scoreDisplay.textContent = currentScore;
+                successFeedback.classList.remove('hidden');
+            } else {
+                errorFeedback.classList.remove('hidden');
+            }
         }
     });
 });
