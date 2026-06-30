@@ -18,7 +18,7 @@
     <main>
         <section class="hero-section">
             <h2>Cidadania Digital na Era da Inteligência Artificial</h2>
-            <p>As tecnologias de IA avançam rapidamente. Com elas, o surgimento de <strong>deepfakes</strong> e a automação da desinformação representam sérios riscos para a nossa sociedade. Entender o problema é o primeiro passo para se proteger.</p>
+            <p>As tecnologias de IA avançam rapidamente. Com elas, o surgimento de <strong>deepfakes</strong> e a automação da desinformação representam sérios riscos. Entender o problema é o primeiro passo para se proteger.</p>
         </section>
 
         <section class="educational-section">
@@ -26,27 +26,31 @@
             <div class="info-section">
                 <div class="card">
                     <h4>👁️ Falhas nos Olhos</h4>
-                    <p>Pistas comuns incluem a ausência de piscadas naturais ou reflexos inconsistentes nos olhos do interlocutor.</p>
+                    <p>Ausência de piscadas naturais ou reflexos inconsistentes nos olhos do interlocutor.</p>
                 </div>
                 <div class="card">
                     <h4>🗣️ Sincronia de Áudio</h4>
-                    <p>O movimento dos lábios muitas vezes não condiz perfeitamente com o som emitido ou com a tonalidade da voz.</p>
+                    <p>O movimento dos lábios não condiz perfeitamente com o som emitido ou com o tom de voz.</p>
                 </div>
                 <div class="card">
                     <h4>🖼️ Bordas e Elementos</h4>
-                    <p>Desfocados ao redor do rosto, sombras estranhas ou acessórios (brincos, óculos) distorcidos denunciam a manipulação.</p>
+                    <p>Desfocados ao redor do rosto, sombras estranhas ou acessórios distorcidos denunciam a IA.</p>
                 </div>
             </div>
         </section>
 
         <section class="interactive-section">
-            <h3>Desafio Interativo: Você Sabe Identificar a Verdade?</h3>
-            <p>Responda à questão abaixo para testar suas habilidades contra a desinformação automatizada:</p>
+            <h3>🎮 Minijogo: Detetive Antidesinformação</h3>
+            <p>Analise a situação abaixo e use seus conhecimentos para pontuar!</p>
             
+            <div class="scoreboard">
+                <span>Pontuação: <strong id="score">0</strong> pontos</span>
+            </div>
+
             <form id="quiz-form" class="quiz-container">
-                <p class="quiz-question">Se você receber um vídeo bombástico de uma figura pública cometendo um crime, qual deve ser sua primeira atitude?</p>
+                <p class="quiz-question" id="question-text">Se você receber um vídeo bombástico de uma figura pública cometendo um crime, qual deve ser sua primeira atitude?</p>
                 
-                <div class="options-container">
+                <div class="options-container" id="options-wrapper">
                     <label class="option-label">
                         <input type="radio" name="quiz-answer" value="errada1" required>
                         <span>Compartilhar imediatamente nos grupos de família para alertar a todos.</span>
@@ -63,14 +67,14 @@
                     </label>
                 </div>
                 
-                <button type="submit" class="btn-submit">Verificar Resposta</button>
+                <button type="submit" class="btn-submit" id="submit-btn">Verificar Resposta</button>
             </form>
             
             <div id="quiz-result-success" class="result-message hidden">
-                <strong>🎉 Resposta Correta!</strong> Excelente escolha. Sempre desconfie e verifique os fatos antes de espalhar qualquer informação.
+                <strong>🎉 Resposta Correta!</strong> +10 pontos. Excelente escolha! Sempre investigue antes de compartilhar.
             </div>
             <div id="quiz-result-error" class="result-message hidden">
-                <strong>❌ Resposta Incorreta.</strong> Lembre-se: na era das IAs e deepfakes, vídeos podem ser facilmente adulterados. Sempre investigue a fonte.
+                <strong>❌ Resposta Incorreta.</strong> Na era das deepfakes, vídeos podem ser facilmente adulterados. Fique alerta!
             </div>
         </section>
     </main>
