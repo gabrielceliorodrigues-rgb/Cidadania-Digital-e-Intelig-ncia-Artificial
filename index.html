@@ -39,43 +39,62 @@
             </div>
         </section>
 
+        <section class="table-section">
+            <h3>Guia de Sobrevivência Digital: Real vs. Artificial</h3>
+            <p>Veja as principais diferenças conceituais para não cair em armadilhas na internet:</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tecnologia/Conceito</th>
+                            <th>O que é?</th>
+                            <th>Como se proteger?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Deepfake de Áudio/Vídeo</strong></td>
+                            <td>Sintetização de voz ou imagem simulando pessoas reais dizendo coisas que nunca disseram.</td>
+                            <td>Analise a respiração, cortes bruscos de áudio e expressões faciais travadas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Desinformação Automatizada</strong></td>
+                            <td>Bots e contas fakes programados para espalhar mentiras em massa nas redes sociais.</td>
+                            <td>Cheque se o perfil possui comportamento repetitivo e verifique em agências de checagem.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phishing Baseado em IA</strong></td>
+                            <td>E-mails e mensagens de golpe perfeitamente escritos por IA para roubar dados.</td>
+                            <td>Nunca clique em links suspeitos e confirme a identidade do remetente por canais oficiais.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
         <section class="interactive-section">
             <h3>🎮 Minijogo: Detetive Antidesinformação</h3>
-            <p>Analise a situação abaixo e use seus conhecimentos para pontuar!</p>
+            <p>Responda às perguntas para avançar de nível e testar suas defesas cibernéticas!</p>
             
-            <div class="scoreboard">
-                <span>Pontuação: <strong id="score">0</strong> pontos</span>
+            <div class="game-status">
+                <div class="scoreboard">Pontuação: <strong id="score">0</strong> pontos</div>
+                <div class="phase-indicator">Fase: <strong id="phase-num">1</strong> de 3</div>
+            </div>
+
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
             </div>
 
             <form id="quiz-form" class="quiz-container">
-                <p class="quiz-question" id="question-text">Se você receber um vídeo bombástico de uma figura pública cometendo um crime, qual deve ser sua primeira atitude?</p>
+                <p class="quiz-question" id="question-text">Carregando pergunta...</p>
                 
                 <div class="options-container" id="options-wrapper">
-                    <label class="option-label">
-                        <input type="radio" name="quiz-answer" value="errada1" required>
-                        <span>Compartilhar imediatamente nos grupos de família para alertar a todos.</span>
-                    </label>
-                    
-                    <label class="option-label">
-                        <input type="radio" name="quiz-answer" value="correta">
-                        <span>Duvidar, analisar as bordas do rosto e cruzar a informação com portais de notícias confiáveis.</span>
-                    </label>
-                    
-                    <label class="option-label">
-                        <input type="radio" name="quiz-answer" value="errada2">
-                        <span>Acreditar cegamente, pois vídeos são provas absolutas e impossíveis de serem forjados.</span>
-                    </label>
-                </div>
+                    </div>
                 
                 <button type="submit" class="btn-submit" id="submit-btn">Verificar Resposta</button>
             </form>
             
-            <div id="quiz-result-success" class="result-message hidden">
-                <strong>🎉 Resposta Correta!</strong> +10 pontos. Excelente escolha! Sempre investigue antes de compartilhar.
-            </div>
-            <div id="quiz-result-error" class="result-message hidden">
-                <strong>❌ Resposta Incorreta.</strong> Na era das deepfakes, vídeos podem ser facilmente adulterados. Fique alerta!
-            </div>
+            <div id="quiz-feedback" class="result-message hidden"></div>
         </section>
     </main>
 
