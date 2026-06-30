@@ -1,256 +1,165 @@
-/* Variáveis de Cores e Configurações Globais */
-:root {
-    --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --bg-container: rgba(255, 255, 255, 0.95);
-    --text-main: #2d3748;
-    --text-muted: #4a5568;
-    --accent-color: #5a67d8;
-    --accent-success: #38a169;
-    --accent-error: #e53e3e;
-    --border-color: #e2e8f0;
-    --transition-speed: 0.3s;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // ==========================================
+    // CONTROLE DO MODO ESCURO (TEMA)
+    // ==========================================
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
 
-[data-theme="dark"] {
-    --bg-primary: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-    --bg-container: rgba(26, 32, 44, 0.95);
-    --text-main: #f7fafc;
-    --text-muted: #cbd5e0;
-    --accent-color: #90cdf4;
-    --border-color: #4a5568;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg-primary);
-    background-attachment: fixed;
-    color: var(--text-main);
-    line-height: 1.6;
-    transition: background var(--transition-speed), color var(--transition-speed);
-    padding-bottom: 2rem;
-}
-
-/* Header */
-.main-header {
-    background-color: var(--bg-container);
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.header-container h1 span {
-    color: #4c51bf;
-}
-
-[data-theme="dark"] .header-container h1 span {
-    color: var(--accent-color);
-}
-
-/* Botões */
-.btn-toggle {
-    background: transparent;
-    border: 2px solid var(--accent-color);
-    color: var(--text-main);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all var(--transition-speed) ease;
-}
-
-.btn-toggle:hover {
-    background-color: var(--accent-color);
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-/* Layout Central */
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.hero-section, .interactive-section, .card {
-    background-color: var(--bg-container);
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border: 1px solid var(--border-color);
-    transition: transform var(--transition-speed), background-color var(--transition-speed);
-}
-
-.hero-section {
-    text-align: center;
-    padding: 2.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.hero-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-/* Cards Flexbox */
-.info-section {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.card {
-    flex: 1;
-    padding: 2rem;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card h4 {
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
-}
-
-/* Elementos do Jogo */
-.interactive-section {
-    padding: 2.5rem;
-}
-
-.scoreboard {
-    background: var(--accent-color);
-    color: #fff;
-    padding: 0.5rem 1.5rem;
-    border-radius: 30px;
-    display: inline-block;
-    margin: 1rem 0;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.quiz-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.quiz-question {
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-
-.options-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.option-label {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color var(--transition-speed), border-color var(--transition-speed);
-}
-
-.option-label:hover {
-    background-color: rgba(90, 103, 216, 0.1);
-    border-color: var(--accent-color);
-}
-
-.btn-submit {
-    background-color: var(--accent-success);
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: filter var(--transition-speed), transform 0.1s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.btn-submit:hover {
-    filter: brightness(1.1);
-}
-
-.btn-submit:active {
-    transform: scale(0.98);
-}
-
-/* Mensagens de Feedback */
-.result-message {
-    margin-top: 1.5rem;
-    padding: 1.2rem;
-    border-radius: 10px;
-    animation: fadeIn 0.4s ease forwards;
-}
-
-.hidden {
-    display: none !important;
-}
-
-#quiz-result-success {
-    background-color: rgba(56, 161, 105, 0.2);
-    border-left: 6px solid var(--accent-success);
-}
-
-#quiz-result-error {
-    background-color: rgba(229, 62, 98, 0.2);
-    border-left: 6px solid var(--accent-error);
-}
-
-/* Rodapé */
-.main-footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
-    background-color: var(--bg-container);
-    border-top: 1px solid var(--border-color);
-    color: var(--text-muted);
-    border-radius: 12px;
-}
-
-/* Animações */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsividade Básica */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggleBtn.textContent = savedTheme === 'dark' ? '☀️ Modo Claro' : '🌓 Modo Escuro';
     }
-    .info-section {
-        flex-direction: column;
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let newTheme = 'light';
+
+        if (currentTheme !== 'dark') {
+            newTheme = 'dark';
+            themeToggleBtn.textContent = '☀️ Modo Claro';
+        } else {
+            themeToggleBtn.textContent = '🌓 Modo Escuro';
+        }
+
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+    // ==========================================
+    // ESTRUTURA DE DADOS DO JOGO (PERGUNTAS)
+    // ==========================================
+    const quizData = [
+        {
+            question: "Se você receber um vídeo bombástico de uma figura pública cometendo um crime, qual deve ser sua primeira atitude?",
+            options: [
+                { text: "Compartilhar imediatamente nos grupos de família para alertar a todos.", correct: false },
+                { text: "Duvidar, analisar as bordas do rosto e cruzar a informação com portais de notícias confiáveis.", correct: true },
+                { text: "Acreditar cegamente, pois vídeos são provas absolutas e impossíveis de serem forjados.", correct: false }
+            ]
+        },
+        {
+            question: "Você encontrou uma notícia chocante sobre uma cura milagrosa em um site desconhecido. O que liga o seu sinal de alerta?",
+            options: [
+                { text: "O site usar títulos exagerados (clickbaits), excesso de anúncios e não citar fontes médicas científicas.", correct: true },
+                { text: "O texto ser muito longo e bem estruturado.", correct: false },
+                { text: "Conter imagens de laboratórios ilustrativos genéricos.", correct: false }
+            ]
+        },
+        {
+            question: "Uma conta com a foto de um amigo seu te manda mensagem pedindo dinheiro urgente por Pix. Qual o procedimento correto?",
+            options: [
+                { text: "Enviar o valor o mais rápido possível para ajudar a pessoa necessitada.", correct: false },
+                { text: "Ignorar permanentemente e bloquear a pessoa sem dar explicações.", correct: false },
+                { text: "Ligar diretamente para esse amigo por fora do aplicativo ou fazer uma chamada de vídeo para confirmar a identidade.", correct: true }
+            ]
+        }
+    ];
+
+    // Elementos de Controle do Jogo
+    let currentPhase = 0;
+    let score = 0;
+    let answered = false;
+
+    const questionText = document.getElementById('question-text');
+    const optionsWrapper = document.getElementById('options-wrapper');
+    const scoreDisplay = document.getElementById('score');
+    const phaseNumDisplay = document.getElementById('phase-num');
+    const progressBar = document.getElementById('progress-bar');
+    const quizForm = document.getElementById('quiz-form');
+    const feedbackBox = document.getElementById('quiz-feedback');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Inicializa a primeira fase do jogo
+    loadPhase();
+
+    function loadPhase() {
+        answered = false;
+        feedbackBox.classList.add('hidden');
+        submitBtn.textContent = "Verificar Resposta";
+        
+        // Atualiza cabeçalhos e progresso visual
+        phaseNumDisplay.textContent = currentPhase + 1;
+        progressBar.style.width = ((currentPhase + 1) / quizData.length) * 100 + "%";
+
+        // Renderiza a pergunta
+        const currentQuiz = quizData[currentPhase];
+        questionText.textContent = currentQuiz.question;
+
+        // Renderiza as alternativas
+        optionsWrapper.innerHTML = '';
+        currentQuiz.options.forEach((option, index) => {
+            const label = document.createElement('label');
+            label.className = 'option-label';
+            
+            label.innerHTML = `
+                <input type="radio" name="quiz-answer" value="${option.correct}" required>
+                <span>${option.text}</span>
+            `;
+            optionsWrapper.appendChild(label);
+        });
     }
-    .btn-submit {
-        width: 100%;
+
+    quizForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Se o botão estiver em modo de avançar fase
+        if (answered) {
+            currentPhase++;
+            if (currentPhase < quizData.length) {
+                loadPhase();
+            } else {
+                // Fim do Jogo
+                showFinalResults();
+            }
+            return;
+        }
+
+        // Validação da alternativa escolhida
+        const selected = document.querySelector('input[name="quiz-answer"]:checked');
+        if (!selected) return;
+
+        answered = true;
+        
+        // Desativa campos da fase resolvida
+        const inputs = optionsWrapper.querySelectorAll('input');
+        inputs.forEach(input => input.disabled = true);
+
+        feedbackBox.classList.remove('hidden', 'success-message', 'error-message');
+
+        if (selected.value === "true") {
+            score += 10;
+            scoreDisplay.textContent = score;
+            feedbackBox.textContent = "🎉 Resposta Correta! Muito bem investigado.";
+            feedbackBox.classList.add('success-message');
+        } else {
+            feedbackBox.textContent = "❌ Incorreto. É preciso ter mais atenção aos detalhes digitais.";
+            feedbackBox.classList.add('error-message');
+        }
+
+        // Altera comportamento do botão para avançar
+        if (currentPhase + 1 < quizData.length) {
+            submitBtn.textContent = "Próxima Fase ➡️";
+        } else {
+            submitBtn.textContent = "Finalizar Desafio 🏆";
+        }
+    });
+
+    function showFinalResults() {
+        questionText.textContent = "🏅 Desafio Concluído!";
+        optionsWrapper.innerHTML = `
+            <p style="font-size:1.1rem; text-align:center; padding:1rem;">
+                Você completou o treinamento de Cidadania Digital 2026.<br>
+                Sua pontuação final foi de <strong>${score} de 30</strong> pontos possíveis.
+            </p>
+        `;
+        feedbackBox.classList.add('hidden');
+        submitBtn.textContent = "Reiniciar Jogo 🔄";
+        
+        // Permite resetar o jogo ao clicar novamente
+        answered = true;
+        currentPhase = -1; // Na próxima rodada vai para 0 após o incremento
+        score = 0;
+        scoreDisplay.textContent = "0";
     }
-}
+});
